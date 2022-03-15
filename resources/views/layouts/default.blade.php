@@ -62,20 +62,16 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link" href="#" >
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Data Utama</span>
+                    <span>Data Pasien</span>
                 </a>
-                {{-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item {{ (request()->is('company*')) ? 'active' : '' }}"
-                            href="/company">Pemilik Sistem</a>
-                        <a class="collapse-item {{ (request()->is('researcher*')) ? 'active' : '' }}"
-                            href="/researcher">Peneliti Keamanan</a>
-
-                    </div>
-                </div> --}}
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" >
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Data Perawat</span>
+                </a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -85,45 +81,31 @@
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Data Program</span>
                 </a>
-                {{-- <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item {{ (request()->is('program_public*')) ? 'active' : '' }}"
-                            href="/program_public">Program Publik</a>
-                        <a class="collapse-item {{ (request()->is('program_private*')) ? 'active' : '' }}"
-                            href="/program_private">Program Privat</a>
+                        <a class="collapse-item "
+                            href="/program_public">Pengkajian</a>
+                        <a class="collapse-item"
+                            href="/program_private">NOC</a>
+                        <a class="collapse-item"
+                            href="/program_private">NIC</a>
+                        <a class="collapse-item"
+                            href="/program_private">Implementasi</a>
+                        <a class="collapse-item"
+                            href="/program_private">Evaluasi</a>
+                        <a class="collapse-item"
+                            href="/program_private">SOAP</a>
                     </div>
-                </div> --}}
+                </div>
             </li>
+           
+
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReport"
-                    aria-expanded="true" aria-controls="collapseReport">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data Laporan</span>
+                <a class="nav-link" href="#" >
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Riwayat</span>
                 </a>
-                {{-- <div id="collapseReport" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item {{ (request()->is('report*')) ? 'active' : '' }}" href="/report">Laporan
-                            Program</a>
-                    </div>
-                </div> --}}
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePayment"
-                    aria-expanded="true" aria-controls="collapsePayment">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data Keuangan</span>
-                </a>
-                {{-- <div id="collapsePayment" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/balance">Laporan Saldo <br> Pemilik Sistem</a>
-                        <a class="collapse-item" href="/payment">Laporan Transaksi <br> Pemilik Sistem</a>
-                        <a class="collapse-item {{ (request()->is('payment_program*')) ? 'active' : '' }}"
-                            href="/payment_program">Laporan Pembayaran <br> Program</a>
-                    </div>
-                </div> --}}
             </li>
             {{--
             <!-- Divider -->
