@@ -1,5 +1,6 @@
 @extends('layouts.log')
 
+@section('content')
 
 <div class="container">
     <!-- Outer Row -->
@@ -12,27 +13,30 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Selamat Datang</h1>
                             </div>
-
-                            @section('content')
-                            @if ($alert = Session::get('alert-success'))
-                            <div class="alert alert-warning">
-                                {{ $alert }}
-                            </div>
-                            @endif
-
-                            <form class="user" action='\login' method="post">
+                            <form class="user" action='\register-user' method="post">
                                 @csrf
                                 <div class="form-group">
+                                    <input type="text" name="name" class="form-control form-control-user" id="name"
+                                        placeholder="Nama" required>
+                                </div>
+                                <div class="form-group">
                                     <input type="email" name="email" class="form-control form-control-user" id="email"
-                                        aria-describedby="emailHelp" placeholder="Email" required>
+                                        placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="password" class="form-control form-control-user"
                                         id="exampleInputPassword" placeholder="Password" required>
                                 </div>
+                                <div class="form-group">
+                                    <select name="role" class="custom-select" id="inputGroupSelect01">
+                                        <option value="Kepala Perawat">Kepala Perawat</option>
+                                        <option value="Rekam Medik">Rekam Medik</option>
+                                        <option value="Perawat">Perawat</option>
+                                    </select>
+                                </div>
                                 <hr>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    Login
+                                    Register
                                 </button>
                             </form>
                         </div>
