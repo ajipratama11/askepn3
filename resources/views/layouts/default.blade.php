@@ -58,29 +58,17 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-
-
             <!-- Nav Item - Pages Collapse Menu -->
-            @if ($auth->role !="Rekam Medik")
+            @if (auth()->user()->role =="Rekam Medik")
+            
+            @endif
+            @if (auth()->user()->role =="Perawat")
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/pasien">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Data Pasien</span>
                 </a>
             </li>
-            @endif
-
-            @if ($auth->role =="Kepala Perawat")
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Data Perawat</span>
-                </a>
-            </li>
-            @endif
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            @if ($auth->role !="Rekam Medik")
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -90,16 +78,86 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item " href="/program_public">Pengkajian</a>
-                        <a class="collapse-item" href="/program_private">NOC</a>
-                        <a class="collapse-item" href="/program_private">NIC</a>
-                        <a class="collapse-item" href="/program_private">Implementasi</a>
-                        <a class="collapse-item" href="/program_private">Evaluasi</a>
-                        <a class="collapse-item" href="/program_private">SOAP</a>
+                        <a class="collapse-item " href="/pengkajian">Pengkajian</a>
+                        <a class="collapse-item" href="/diagnosa">Diagnosa</a>
+                        <a class="collapse-item" href="/perencanaan">Perencanaan</a>
+                        <a class="collapse-item" href="/implementasi">Implementasi</a>
+                        <a class="collapse-item" href="/evaluasi">Evaluasi</a>
                     </div>
                 </div>
             </li>
             @endif
+            @if (auth()->user()->role =="Kepala Perawat")
+            <li class="nav-item">
+                <a class="nav-link" href="/perawat">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Data Perawat</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pasien">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Data Pasien</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Data Program</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item " href="/pengkajian">Pengkajian</a>
+                        <a class="collapse-item" href="/diagnosa">Diagnosa</a>
+                        <a class="collapse-item" href="/perencanaan">Perencanaan</a>
+                        <a class="collapse-item" href="/implementasi">Implementasi</a>
+                        <a class="collapse-item" href="/evaluasi">Evaluasi</a>
+                    </div>
+                </div>
+            </li>
+            @endif
+
+            {{--
+            <!-- Nav Item - Pages Collapse Menu -->
+            @if (auth()->user()->role !="Rekam Medik")
+            <li class="nav-item">
+                <a class="nav-link" href="/pasien">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Data Pasien</span>
+                </a>
+            </li>
+            @endif
+
+            @if (auth()->user()->role =="Kepala Perawat")
+            <li class="nav-item">
+                <a class="nav-link" href="/perawat">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Data Perawat</span>
+                </a>
+            </li>
+            @endif
+            <!-- Nav Item - Utilities Collapse Menu -->
+            @if (auth()->user()->role !="Rekam Medik")
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Data Program</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item " href="/pengkajian">Pengkajian</a>
+                        <a class="collapse-item" href="/diagnosa">Diagnosa</a>
+                        <a class="collapse-item" href="/perencanaan">Perencanaan</a>
+                        <a class="collapse-item" href="/implementasi">Implementasi</a>
+                        <a class="collapse-item" href="/evaluasi">Evaluasi</a>
+                    </div>
+                </div>
+            </li>
+            @endif --}}
 
             <li class="nav-item">
                 <a class="nav-link" href="#">
@@ -154,8 +212,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$auth->name}} -
-                                    {{$auth->role}}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->name}} -
+                                    {{auth()->user()->role}}</span>
                                 <img class="img-profile rounded-circle" src="{{'img/undraw_rocket.svg'}}">
                             </a>
                             <!-- Dropdown - User Information -->

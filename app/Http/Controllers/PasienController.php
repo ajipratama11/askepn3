@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pasien;
 use Illuminate\Http\Request;
 
 class PasienController extends Controller
@@ -13,7 +14,9 @@ class PasienController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.pasien.pasien',[
+            'pasien' => Pasien::all()
+        ]);
     }
 
     /**
@@ -23,7 +26,7 @@ class PasienController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.pasien.create_pasien');
     }
 
     /**
@@ -34,7 +37,32 @@ class PasienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->validate([
+            'no_rm'=>'required',
+            'nik' => 'required',
+            'nama_pasien' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+            'agama' => 'required',
+            'alamat' => 'required',
+        ]);
+        $pasien = Pasien::create($input);
+
+        if ($pasien) {
+            return redirect()
+                ->route('pasien.index')
+                ->with([
+                    'success' => 'New post has been created successfully'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Some problem occurred, please try again'
+                ]);
+        }
     }
 
     /**
@@ -45,7 +73,12 @@ class PasienController extends Controller
      */
     public function show($id)
     {
-        //
+        $pasien = Pasien::where('id',$id)
+        ->first();
+        
+        return view('pages.pasien.detail_pasien', [
+          'pasien' => $pasien
+        ]);
     }
 
     /**
@@ -56,7 +89,12 @@ class PasienController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pasien = Pasien::where('id',$id)
+        ->first();
+        
+        return view('pages.pasien.edit_pasien', [
+          'pasien' => $pasien
+        ]);
     }
 
     /**
@@ -68,7 +106,42 @@ class PasienController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->validate([
+            'no_rm'=>'required',
+            'nik' => 'required',
+            'nama_pasien' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+            'agama' => 'required',
+            'alamat' => 'required',
+        ]);
+        $pasien = Pasien::where('id',$id)->first();
+        $pasien->no_rm = $input['no_rm'];
+        $pasien->nik = $input['nik'];
+        $pasien->nama_pasien = $input['nama_pasien'];
+        $pasien->tempat_lahir = $input['tempat_lahir'];
+        $pasien->tanggal_lahir = $input['tanggal_lahir'];
+        $pasien->jenis_kelamin = $input['jenis_kelamin'];
+        $pasien->alamat = $input['alamat'];
+        $pasien->agama = $input['agama'];
+
+        $pasien->save($input);
+
+        if ($pasien) {
+            return redirect()
+                ->route('pasien.index')
+                ->with([
+                    'success' => 'New post has been created successfully'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Some problem occurred, please try again'
+                ]);
+        }
     }
 
     /**
