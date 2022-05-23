@@ -60,7 +60,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             @if (auth()->user()->role =="Rekam Medik")
-            
+
             @endif
             @if (auth()->user()->role =="Perawat")
             <li class="nav-item">
@@ -70,22 +70,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data Program</span>
+                <a class="nav-link" href="/pengkajian">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Pengkajian</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item " href="/pengkajian">Pengkajian</a>
-                        <a class="collapse-item" href="/diagnosa">Diagnosa</a>
-                        <a class="collapse-item" href="/perencanaan">Perencanaan</a>
-                        <a class="collapse-item" href="/implementasi">Implementasi</a>
-                        <a class="collapse-item" href="/evaluasi">Evaluasi</a>
-                    </div>
-                </div>
             </li>
+
             @endif
             @if (auth()->user()->role =="Kepala Perawat")
             <li class="nav-item">
@@ -101,63 +91,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data Program</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item " href="/pengkajian">Pengkajian</a>
-                        <a class="collapse-item" href="/diagnosa">Diagnosa</a>
-                        <a class="collapse-item" href="/perencanaan">Perencanaan</a>
-                        <a class="collapse-item" href="/implementasi">Implementasi</a>
-                        <a class="collapse-item" href="/evaluasi">Evaluasi</a>
-                    </div>
-                </div>
-            </li>
-            @endif
-
-            {{--
-            <!-- Nav Item - Pages Collapse Menu -->
-            @if (auth()->user()->role !="Rekam Medik")
-            <li class="nav-item">
-                <a class="nav-link" href="/pasien">
+                <a class="nav-link" href="/pengkajian">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Data Pasien</span>
+                    <span>Pengkajian</span>
                 </a>
             </li>
             @endif
-
-            @if (auth()->user()->role =="Kepala Perawat")
-            <li class="nav-item">
-                <a class="nav-link" href="/perawat">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Data Perawat</span>
-                </a>
-            </li>
-            @endif
-            <!-- Nav Item - Utilities Collapse Menu -->
-            @if (auth()->user()->role !="Rekam Medik")
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Data Program</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item " href="/pengkajian">Pengkajian</a>
-                        <a class="collapse-item" href="/diagnosa">Diagnosa</a>
-                        <a class="collapse-item" href="/perencanaan">Perencanaan</a>
-                        <a class="collapse-item" href="/implementasi">Implementasi</a>
-                        <a class="collapse-item" href="/evaluasi">Evaluasi</a>
-                    </div>
-                </div>
-            </li>
-            @endif --}}
 
             <li class="nav-item">
                 <a class="nav-link" href="#">
@@ -173,8 +112,6 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
-
 
         </ul>
         <!-- End of Sidebar -->
