@@ -27,4 +27,38 @@ class Pengkajian extends Model
     {
         return $this->belongsTo(Pasien::class);
     }
+
+
+    public function perawat()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function nics()
+    {
+        return $this->hasOne(PasienNic::class);
+    }
+
+    public function nocs()
+    {
+        return $this->hasOne(PasienNoc::class);
+    }
+    public function evaluasi()
+    {
+        return $this->hasOne(Evaluasi::class);
+    }
+    public function implementasi()
+    {
+        return $this->hasOne(Implementasi::class);
+    }
+
+    public function nic($id)
+    {
+
+        $nic =  PasienNic::where('pengkajian_id', $id)->value('diagnosa_id');
+
+        return Diagnosa::where('id', $nic)->value('nama_diagnosa');
+    }
+
+    
 }

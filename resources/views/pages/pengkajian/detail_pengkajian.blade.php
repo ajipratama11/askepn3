@@ -42,57 +42,57 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="mb-3">
-                            <label class="form-label">Tanggal</label>
+                            <span class="font-weight-bolder"> Tanggal </span>
                             <p class="font-weight-normal">{{$pengkajian->tanggal ?? ''}}</p>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="mb-3">
-                            <label class="form-label">Ruang</label>
+                            <span class="font-weight-bolder"> Ruang </span>
                             <p class="font-weight-normal">{{$pengkajian->ruang ?? ''}}</p>
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="mb-3">
-                            <label class="form-label">Tensi Darah</label>
+                            <span class="font-weight-bolder"> Tensi darah </span>
                             <p class="font-weight-normal">{{$pengkajian->tensi_darah ?? ''}}</p>
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="mb-3">
-                            <label class="form-label">Suhu</label>
+                            <span class="font-weight-bolder"> Suhu </span>
                             <p class="font-weight-normal">{{$pengkajian->suhu ?? ''}}</p>
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="mb-3">
-                            <label class="form-label">Nadi</label>
+                            <span class="font-weight-bolder"> Nadi </span>
                             <p class="font-weight-normal">{{$pengkajian->nadi ?? ''}}</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">Riwayat Penyakit Sekarang</label>
+                            <span class="font-weight-bolder"> Riwayat penyakit sekarang </span>
                             <p class="font-weight-normal">{{$pengkajian->riwayat_penyakit_sekarang ?? ''}}</p>
                             
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">Riwayat Penyakit Terdahulu</label>
+                            <span class="font-weight-bolder"> Riwayat penyakit terdahulu </span>
                             <p class="font-weight-normal">{{$pengkajian->riwayat_penyakit_terdahulu ?? ''}}</p>
                            
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="mb-3">
-                            <label class="form-label">Keluhan</label>
+                            <span class="font-weight-bolder"> Keluhan </span>
                             <p class="font-weight-normal">{{$pengkajian->keluhan ?? ''}}</p>
                         </div>
                     </div>
 
                 </div>
-                <button type="submit" class="btn btn-primary ">Simpan</button>
+                <a type="submit" class="btn btn-primary " href="/pengkajian">Kembali</a>
             </form>
         </div>
     </div>

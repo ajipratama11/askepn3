@@ -1,15 +1,17 @@
 <?php
 
+use App\Http\Controllers\CetakLaporanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PasienController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\PerawatController;
 use App\Http\Controllers\DiagnosaController;
 use App\Http\Controllers\EvaluasiController;
-use App\Http\Controllers\ImplementasiController;
-use App\Http\Controllers\PasienController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengkajianController;
-use App\Http\Controllers\PerawatController;
 use App\Http\Controllers\PerencanaanController;
+use App\Http\Controllers\ImplementasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +46,6 @@ Route::group(['middleware' => ['admin']], function ()
     Route::resource('perencanaan', PerencanaanController::class);
     Route::resource('implementasi', ImplementasiController::class);
     Route::resource('evaluasi', EvaluasiController::class);
+    Route::resource('laporan', LaporanController::class);
+    Route::resource('cetak_laporan', CetakLaporanController::class);
 });

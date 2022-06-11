@@ -14,8 +14,7 @@
             <h6 class="m-0 font-weight-bold text-primary"> Perencanaan Pasien </h6>
         </div>
         <div class="card-body">
-            <form method="POST" enctype="multipart/form-data"
-                action="{{ route('perencanaan.store') }}">
+            <form method="POST" enctype="multipart/form-data" action="{{ route('perencanaan.store') }}">
                 @csrf
                 <table class="table table-bordered" id="" width="100%" cellspacing="0">
                     <thead>
@@ -34,10 +33,11 @@
                             </td>
                             <td>
                                 <p> Setelah dilakukan tindakan
-                                    keperawatan selama 
-                                    <input name="hari" type="number" style="width: 50px;" required> 
-                                    hari. 
-                                    {{$diagnosa->nama_diagnosa}} dengan kriteria: </p>
+                                    keperawatan selama
+                                    <input name="hari" type="number" style="width: 50px;" required>
+                                    hari.
+                                    {{$diagnosa->nama_diagnosa}} dengan kriteria:
+                                </p>
                                 <div class="custom-control custom-checkbox">
                                     @foreach ($noc as $noc)
                                     <div class="col-lg-12 mt-2">
@@ -45,7 +45,7 @@
                                             id="{{$noc->id}}{{$noc->identifikasi_noc}}" value="{{$noc->id}}">
                                         <label class="custom-control-label"
                                             for="{{$noc->id}}{{$noc->identifikasi_noc}}">
-                                            {{$noc->identifikasi_noc}}{{$noc->id}}</label>
+                                            {{$noc->identifikasi_noc}}</label>
                                     </div>
                                     @endforeach
                                 </div>
@@ -56,8 +56,7 @@
                                     @foreach ($nic as $nic)
                                     <div class="col-lg-12 mt-2">
                                         <input name="nic[]" type="checkbox" class="custom-control-input"
-                                            id="{{$nic->id}}{{$nic->identifikasi_nic}}"
-                                            value="{{$nic->id}}">
+                                            id="{{$nic->id}}{{$nic->identifikasi_nic}}" value="{{$nic->id}}">
                                         <label class="custom-control-label"
                                             for="{{$nic->id}}{{$nic->identifikasi_nic}}">{{$nic->identifikasi_nic}}</label>
                                     </div>

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pasien;
-use App\Models\Diagnosa;
 use App\Models\Evaluasi;
+use App\Models\Pasien;
+// use Barryvdh\DomPDF\PDF;
 use App\Models\Pengkajian;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\App;
 
-class EvaluasiController extends Controller
+class LaporanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +19,8 @@ class EvaluasiController extends Controller
      */
     public function index()
     {
-        return view('pages.evaluasi.evaluasi', [
-            'pasien' => Pasien::where('id', 1)->first(),
-            'diagnosa' => Diagnosa::all()
+        return view('pages.laporan.laporan_pasien', [
+            'pasien' => Pasien::all()
         ]);
     }
 
@@ -52,9 +53,11 @@ class EvaluasiController extends Controller
      */
     public function show($id)
     {
-        return view('pages.evaluasi.evaluasi', [
-            'pengkajian' => Pengkajian::where('id', $id)->first(),
-            'diagnosa' => Diagnosa::all()
+        $notin = Evaluasi::all('pengkajian_id');
+        $pengkajian = Pengkajian::where('pasien_id', $id)
+            ->whereIn('id', $notin)->get();
+        return view('pages.laporan.list_laporan', [
+            'pengkajian' => $pengkajian
         ]);
     }
 
@@ -66,7 +69,9 @@ class EvaluasiController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('pages.laporan.cetak_laporan', [
+            'pengkajian' => Pengkajian::where('id', $id)->first()
+        ]);
     }
 
     /**
@@ -78,37 +83,6 @@ class EvaluasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $input = $request->validate([
-            'data_objektif' => 'required',
-            'data_subjektif' => 'required',
-            'analisis' => 'required',
-            'planing' => 'required',
-        ]);
-        $evaluasi = new Evaluasi();
-        $evaluasi->data_objektif = $input['data_objektif'];
-        $evaluasi->data_subjektif = $input['data_subjektif'];
-        $evaluasi->analisis = $input['analisis'];
-        $evaluasi->planing = $input['planing'];
-        $evaluasi->pengkajian_id = $id;
-        $evaluasi->save($input);
-
-        if ($evaluasi)
-        {
-            return redirect()
-                ->route('pengkajian.index')
-                ->with([
-                    'success' => 'New post has been created successfully'
-                ]);
-        }
-        else
-        {
-            return redirect()
-                ->back()
-                ->withInput()
-                ->with([
-                    'error' => 'Some problem occurred, please try again'
-                ]);
-        }
     }
 
     /**
@@ -119,6 +93,22 @@ class EvaluasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pengkajian = Pengkajian::where('id', $id)->first();
+
+        $data = [
+            'pengkajian' => $pengkajian
+        ];
+
+        // $pdf = PDF::loadview('pages.laporan.pdf_laporan', $data);
+
+        $pdf = PDF::loadView('pages.laporan.pdf_laporan', $data);
+        // return $pdf->stream();
+        $pdf->save('laporan.pdf');
+        return $pdf;
+        // return $pdf->download('laporan.pdf');
+    }
+
+    public function cetak_pdf($id)
+    {
     }
 }

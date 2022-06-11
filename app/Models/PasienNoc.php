@@ -15,4 +15,9 @@ class PasienNoc extends Model
         'diagnosa_id',
         'noc'
     ];
+
+    public function identi($id)
+    {
+        return TujuanNoc::where('id', $id)->value('identifikasi_noc');
+    }
 }

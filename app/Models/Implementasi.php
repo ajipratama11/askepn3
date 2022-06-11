@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PasienNic extends Model
+class Implementasi extends Model
 {
     use HasFactory;
 
     protected $fillable = [
 
         'pengkajian_id',
-        'diagnosa_id',
-        'nic'
+        'nic',
+        'tanggal',
+        'keterangan'
+
     ];
 
     public function identi($id)
@@ -24,10 +26,5 @@ class PasienNic extends Model
     public function id($id)
     {
         return RencanaNic::where('id', $id)->value('id');
-    }
-
-    public function pengkajian($id)
-    {
-        return PasienNic::where('pengkajian_id',$id)->value('id');
     }
 }

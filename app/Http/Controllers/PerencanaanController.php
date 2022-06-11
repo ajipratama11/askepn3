@@ -21,13 +21,13 @@ class PerencanaanController extends Controller
     {
         $id = $request->session()->get('diagnosa');
         $pid = $request->session()->get('pengkajian_id');
-        $diagnosa = Diagnosa::where('id',$id)->first();
-        $noc = TujuanNoc::where('diagnosa_id',$id)->get();
-        $nic = RencanaNic::where('diagnosa_id',$id)->get();
-        return view('pages.perencanaan.perencanaan',[
+        $diagnosa = Diagnosa::where('id', $id)->first();
+        $noc = TujuanNoc::where('diagnosa_id', $id)->get();
+        $nic = RencanaNic::where('diagnosa_id', $id)->get();
+        return view('pages.perencanaan.perencanaan', [
             'diagnosa' => $diagnosa,
-            'noc'=> $noc,
-            'nic'=> $nic,
+            'noc' => $noc,
+            'nic' => $nic,
         ]);
     }
 
@@ -49,11 +49,11 @@ class PerencanaanController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $request->merge([ 
+
+        $request->merge([
             'noc' => implode(',', (array) $request['noc'])
         ]);
-        $request->merge([ 
+        $request->merge([
             'nic' => implode(',', (array) $request['nic'])
         ]);
         $pid = $request->session()->get('pengkajian_id');
@@ -62,7 +62,7 @@ class PerencanaanController extends Controller
         $request['diagnosa_id'] = $did;
         PasienNoc::create($request->all());
         $nic = PasienNic::create($request->all());
-    
+
         if ($nic)
         {
             return redirect()
@@ -72,7 +72,6 @@ class PerencanaanController extends Controller
         {
             return redirect()
                 ->back();
-                
         }
     }
 

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Implementasi;
 use App\Models\PasienNic;
 use App\Models\PasienNoc;
 use App\Models\Pengkajian;
 use App\Models\RencanaNic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ImplementasiController extends Controller
 {
@@ -17,11 +19,6 @@ class ImplementasiController extends Controller
      */
     public function index(Request $request)
     {
-        $id = $request->session()->get('diagnosa');
-        $nic = RencanaNic::where('diagnosa_id',$id)->get();
-        return view('pages.implementasi.implementasi',[
-            'nic'=> $nic,
-        ]);
     }
 
     /**
@@ -42,7 +39,6 @@ class ImplementasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -53,7 +49,11 @@ class ImplementasiController extends Controller
      */
     public function show($id)
     {
-        //
+        $implementasi = Implementasi::where('pengkajian_id', $id)->get();
+
+        return view('pages.implementasi.list_implementasi', [
+            'implementasi' => $implementasi
+        ]);
     }
 
     /**
@@ -62,16 +62,17 @@ class ImplementasiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit( Request $request, $id)
+    public function edit(Request $request, $id)
     {
         // $id = $request->session()->get('diagnosa');
-        $pengkajian = Pengkajian::where('id',$id)->first();
-        $dbnic = PasienNic::where('pengkajian_id',$pengkajian->id)->first();
+        $pengkajian = Pengkajian::where('id', $id)->first();
+        $dbnic = PasienNic::where('pengkajian_id', $pengkajian->id)->first();
         $nic = $dbnic->nic;
 
-        return view('pages.implementasi.implementasi',[
-            'nic'=> $nic,
-            'dbnic'=> $dbnic,
+        return view('pages.implementasi.implementasi', [
+            'pengkajian' => $pengkajian,
+            'nic' => $nic,
+            'dbnic' => $dbnic,
         ]);
     }
 
@@ -84,7 +85,20 @@ class ImplementasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $data = $request->all();
+        $nics = $data['nic'];
+        $kets = $data['keterangan'];
+        foreach ($nics as $key => $input)
+        {
+            $bahasa = new Implementasi();
+            $bahasa->nic = isset($nics[$key]) ? $nics[$key] : '';
+            $bahasa->keterangan = isset($kets[$key]) ? $kets[$key] : '';
+            $bahasa->tanggal = Carbon::now();
+            $bahasa->pengkajian_id = $id;
+            $bahasa->save();
+        };
+        return redirect()->route('pengkajian.index');
     }
 
     /**

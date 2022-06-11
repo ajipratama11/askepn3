@@ -47,49 +47,49 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="mb-3">
-                            <label class="form-label">Tanggal</label>
+                            <span class="font-weight-bolder"> Tanggal </span>
                             <input name="tanggal" type="date" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="mb-3">
-                            <label class="form-label">Ruang</label>
+                            <span class="font-weight-bolder"> Ruang </span>
                             <input name="ruang" type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="mb-3">
-                            <label class="form-label">Tensi Darah</label>
+                            <span class="font-weight-bolder"> Tendi darah </span>
                             <input name="tensi_darah" type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="mb-3">
-                            <label class="form-label">Suhu</label>
+                            <span class="font-weight-bolder"> Suhu </span>
                             <input name="suhu" type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="mb-3">
-                            <label class="form-label">Nadi</label>
+                            <span class="font-weight-bolder"> Nadi </span>
                             <input name="nadi" type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">Riwayat Penyakit Sekarang</label>
+                            <span class="font-weight-bolder"> Riwayat penyakit sekarang </span>
                             <input name="riwayat_penyakit_sekarang" type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">Riwayat Penyakit Terdahulu</label>
+                            <span class="font-weight-bolder"> Riwayat penyakit terdahulu </span>
                             <input name="riwayat_penyakit_terdahulu" type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="mb-3">
-                            <label class="form-label">Keluhan</label>
+                            <span class="font-weight-bolder"> Keluhan </span>
                             <textarea name="keluhan" type="text" class="form-control" required></textarea>
                         </div>
                     </div>
