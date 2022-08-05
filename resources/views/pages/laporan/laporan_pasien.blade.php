@@ -26,7 +26,7 @@
                     <tbody>
                         @foreach ($pasien as $pasien)
                         <tr>
-                            <td>{{$pasien->id}}</td>
+                            <td>{{$pasien->no_rm}}</td>
                             <td>{{$pasien->nama_pasien}}</td>
                             <td class="text-center">
                                 <form action="{{url('pasien', $pasien->id)}}" method="POST">

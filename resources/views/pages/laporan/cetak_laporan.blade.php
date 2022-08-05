@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <span class="font-weight-bolder"> No Rekam Medik</span>
-                    <p class="font-weight-normal">{{ $pengkajian->pasien->id }}</p>
+                    <p class="font-weight-normal">{{ $pengkajian->pasien->no_rm }}</p>
                     <span class="font-weight-bolder"> Nama Diagnosa </span>
                     <p class="font-weight-normal">{{$pengkajian->nic($pengkajian->id)}}</p>
 

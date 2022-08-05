@@ -15,7 +15,7 @@ class PasienController extends Controller
     public function index()
     {
         return view('pages.pasien.pasien',[
-            'pasien' => Pasien::all()
+            'pasien' => Pasien::orderBy('id','desc')->get()
         ]);
     }
 

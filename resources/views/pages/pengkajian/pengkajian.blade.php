@@ -18,15 +18,17 @@
                 <thead>
                     <tr>
                         <th class="col-1">No Rekam Medik</th>
+                        <th class="col-1">No Pengkajian</th>
                         <th class="col-1">Nama Pasien</th>
-                        <th class="col-1">Tanggal</th>
-                        <th class="col-1">Aksi</th>
+                        <th class="col-1">Tanggal Mulai</th>
+                        <th class="col-2">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($pengkajian as $pengkajian)
                     <tr>
-                        <td>{{$pengkajian->pasien_id}}</td>
+                        <td>{{$pengkajian->pasien->no_rm}}</td>
+                        <td>{{$pengkajian->id}}</td>
                         <td>{{$pengkajian->pasien->nama_pasien}}</td>
                         <td>{{$pengkajian->tanggal}}</td>
                         <td class="text-center">

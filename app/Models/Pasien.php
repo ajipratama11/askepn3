@@ -19,5 +19,6 @@ class Pasien extends Model
         'tanggal_lahir',
         'agama',
         'alamat',
+        'ibu_kandung'
     ];
 }

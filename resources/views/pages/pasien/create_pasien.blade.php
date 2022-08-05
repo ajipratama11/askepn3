@@ -20,13 +20,18 @@
                             <label class="form-label">No Rekam Medik</label>
                             <input name="no_rm" type="text" class="form-control">
                         </div>
-                    </div>
-                    <div class="col-lg-6">
+                        
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">Nama pasien</label>
                             <input name="nama_pasien" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Ibu Kandung</label>
+                            <input name="ibu_kandung" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tempat lahir</label>

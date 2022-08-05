@@ -37,12 +37,12 @@
         <tr>
             <th class="col-1">No Rekam Medik</th>
             <th class="col-1">Nama Pasien</th>
-            <th class="col-1">Umur</th>
+            <th class="col-1">Tanggal Lahir</th>
             <th class="col-1">Jenis Kelamin</th>
             <th class="col-1">Ruang</th>
         </tr>
         <tr>
-            <td>{{$pasien->id}}</td>
+            <td>{{$pasien->no_rm}}</td>
             <td>{{$pasien->nama_pasien}}</td>
             <td>{{$pasien->tanggal_lahir}}</td>
             <td>{{$pasien->jenis_kelamin}}</td>
@@ -111,7 +111,7 @@
             </tr>
             <tr>
                 <td style="border:none; width:30px">C. No. RM</td>
-                <td style="border:none; width:200px">: {{$pasien->id}}</td>
+                <td style="border:none; width:200px">: {{$pasien->no_rm}}</td>
             </tr>
             <tr>
                 <td style="border:none; width:30px">D. Identitas Pasien</td>
@@ -200,12 +200,12 @@
             <tr>
                 <th>No Rekam Medik</th>
                 <th>Nama Pasien</th>
-                <th>Umur</th>
+                <th>Tanggal Lahir</th>
                 <th>Jenis Kelamin</th>
                 <th>Ruang</th>
             </tr>
             <tr>
-                <td>{{$pasien->id}}</td>
+                <td>{{$pasien->no_rm}}</td>
                 <td>{{$pasien->nama_pasien}}</td>
                 <td>{{$pasien->tanggal_lahir}}</td>
                 <td>{{$pasien->jenis_kelamin}}</td>
@@ -241,12 +241,12 @@
             <tr>
                 <th>No Rekam Medik</th>
                 <th>Nama Pasien</th>
-                <th>Umur</th>
+                <th>Tanggal Lahir</th>
                 <th>Jenis Kelamin</th>
                 <th>Ruang</th>
             </tr>
             <tr>
-                <td>{{$pasien->id}}</td>
+                <td>{{$pasien->no_rm}}</td>
                 <td>{{$pasien->nama_pasien}}</td>
                 <td>{{$pasien->tanggal_lahir}}</td>
                 <td>{{$pasien->jenis_kelamin}}</td>

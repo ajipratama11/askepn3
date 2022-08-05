@@ -19,8 +19,8 @@
             <span class="font-weight-bolder">Nama Pasien : </span>
             <span class="font-weight-bolder"> {{$pengkajian->pasien->nama_pasien}} </span>
             <br>
-            <span class="font-weight-bolder"> No Rm : </span>
-            <span class="font-weight-bolder"> {{$pengkajian->pasien->id}} </span>
+            <span class="font-weight-bolder"> No Rekam Medik : </span>
+            <span class="font-weight-bolder"> {{$pengkajian->pasien->no_rm}} </span>
 
             <form method="POST" enctype="multipart/form-data"
                 action="{{ route('implementasi.update',$pengkajian->id) }}">
@@ -42,7 +42,7 @@
                                 <div class="custom-control custom-checkbox">
                                     <input name="nic[]" type="checkbox" class="custom-control-input"
                                         id="{{$dbnic->id($info)}}{{$dbnic->identi($info)}}"
-                                        value="{{$dbnic->id($info)}}">
+                                        value="{{$dbnic->id($info)}}" required>
                                     <label class="custom-control-label"
                                         for="{{$dbnic->id($info)}}{{$dbnic->identi($info)}}">
                                         {{$dbnic->identi($info)}}</label>
@@ -52,7 +52,7 @@
                                 {{$mytime = Carbon\Carbon::now();}}
                             </td>
                             <td>
-                                <input name="keterangan[]" type="text" class="form-control">
+                                <input name="keterangan[]" type="text" class="form-control" required>
                             </td>
                         </tr>
                         @endforeach

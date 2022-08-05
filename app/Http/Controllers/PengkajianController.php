@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Pasien;
 use App\Models\Perawat;
+use App\Models\Evaluasi;
 use App\Models\Pengkajian;
 use App\Models\KajianPasien;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class PengkajianController extends Controller
@@ -19,8 +21,9 @@ class PengkajianController extends Controller
      */
     public function index()
     {
-        $pengkajian = Pengkajian::get();
 
+        $notin = Evaluasi::all('pengkajian_id');
+        $pengkajian = Pengkajian::whereNotIn('id', $notin)->get();
 
         return view('pages.pengkajian.pengkajian', [
             'pengkajian' => $pengkajian
@@ -79,9 +82,11 @@ class PengkajianController extends Controller
         $pasien = Pasien::where('id', $id)
             ->first();
         $perawat = User::where('role', 'Perawat')->get();
+        $date = \Carbon\Carbon::now();
         return view('pages.pengkajian.tambah_pengkajian', [
             'pasien' => $pasien,
-            'perawat' => $perawat
+            'perawat' => $perawat,
+            'date'=>$date,
         ]);
     }
 
@@ -109,7 +114,7 @@ class PengkajianController extends Controller
         $input['pasien_id'] = $id;
         $pengkajian = Pengkajian::create($input);
 
-        $request->session()->put('pengkajian_id',$pengkajian->id);
+        $request->session()->put('pengkajian_id', $pengkajian->id);
 
         if ($pengkajian)
         {
@@ -120,7 +125,6 @@ class PengkajianController extends Controller
         {
             return redirect()
                 ->back();
-                
         }
     }
 

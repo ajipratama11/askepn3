@@ -39,16 +39,15 @@
                     <div class="col-lg-6">
                         <span class="font-weight-bolder"> Nama Perawat </span>
                         <select name="perawat_id" class="custom-select" id="inputGroupSelect01" required>
-                            <option value="" disabled selected hidden>Pilih Perawat</option>
-                            @foreach ($perawat as $perawat)
-                            <option value="{{$perawat->id}}">{{$perawat->name}}</option>
-                            @endforeach
+                            {{-- <option value="" disabled selected hidden>Pilih Perawat</option> --}}
+                            <option value="{{auth()->user()->id}}">{{auth()->user()->name}}</option>
+                            {{-- <option value="{{$perawat->id}}">{{$perawat->name}}</option> --}}
                         </select>
                     </div>
                     <div class="col-lg-3">
                         <div class="mb-3">
                             <span class="font-weight-bolder"> Tanggal </span>
-                            <input name="tanggal" type="date" class="form-control" required>
+                            <input name="tanggal" type="date" class="form-control" required >
                         </div>
                     </div>
                     <div class="col-lg-3">

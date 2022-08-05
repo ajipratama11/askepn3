@@ -19,13 +19,14 @@
                 @method('put')
                 <div class="row">
                     <div class="col-lg-6">
+                        <span class="font-weight-bolder"> No Rekam Medik</span>
+                        <p class="font-weight-normal">{{ $pengkajian->pasien->no_rm}}</p>
+                    </div>
+                    <div class="col-lg-6">
                         <span class="font-weight-bolder"> Nama Pasien </span>
                         <p class="font-weight-normal">{{ $pengkajian->pasien->nama_pasien }}</p>
                     </div>
-                    <div class="col-lg-6">
-                        <span class="font-weight-bolder"> Jenis Kelamin</span>
-                        <p class="font-weight-normal">{{ $pengkajian->pasien->jenis_kelamin}}</p>
-                    </div>
+                    
                     <div class="col-lg-6">
                         <span class="font-weight-bolder"> Data Subjektif</span>
                         <input name="data_subjektif" type="text" class="form-control">
@@ -59,7 +60,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 mt-3">
-                        <span class="font-weight-bolder"> Analisis</span>
+                        <span class="font-weight-bolder"> Planing</span>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="planing" id="exampleRadios4"
                                 value="Intervensi Dilanjutkan">

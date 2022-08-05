@@ -29,7 +29,7 @@
                     <tbody>
                         @foreach ($pasien as $pasien)
                         <tr>
-                            <td>{{$pasien->id}}</td>
+                            <td>{{$pasien->no_rm}}</td>
                             <td>{{$pasien->nama_pasien}}</td>
                             <td>{{$pasien->alamat}}</td>
                             <td class="text-center">
@@ -52,6 +52,17 @@
             </div>
         </div>
     </div>
-
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function (){
+    var table = $('#dataTable').DataTable({
+        "order": [],
+    //    dom: 'lfrtip'
+    });z
+});
+</script>
 @endsection
